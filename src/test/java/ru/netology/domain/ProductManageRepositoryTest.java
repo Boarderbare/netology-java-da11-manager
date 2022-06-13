@@ -77,4 +77,18 @@ public class ProductManageRepositoryTest {
         Product[] expected = new Product[0];
         assertArrayEquals(actual, expected);
     }
+
+    @Test
+    public void shouldSearchInAuthor() {
+        Product[] actual = manager.searchBy("to");
+        Product[] expected = new Product[]{first, second, third};
+        assertArrayEquals(actual, expected);
+    }
+
+    @Test
+    public void shouldSearchInManufacture() {
+        Product[] actual = manager.searchBy("le");
+        Product[] expected = new Product[]{first, fourth};
+        assertArrayEquals(actual, expected);
+    }
 }

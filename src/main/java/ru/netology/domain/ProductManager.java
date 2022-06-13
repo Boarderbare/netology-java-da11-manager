@@ -18,7 +18,7 @@ public class ProductManager {
         Product[] result = new Product[0];
         int index = 0;
         for (Product item : repo.findAll()) {
-            if (matches(item, text)) {
+            if (item.matches(text)) {
                 Product[] tmp = new Product[result.length + 1];
                 System.arraycopy(result, 0, tmp, 0, result.length);
                 tmp[index] = item;
@@ -27,9 +27,5 @@ public class ProductManager {
             }
         }
         return result;
-    }
-
-    private boolean matches(Product item, String search) {
-        return item.getName().contains(search);
     }
 }
